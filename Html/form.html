@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Elementi</title>
+</head>
+<body>
+    <h1>İletişim Formu</h1>
+    <img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669_1280.jpg" alt="img not found">
+    <form>
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" autocomplete="off" required minlength="3" id="firstName">
+        </div>
+        <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" autocomplete="off" required minlength="3" id="lastName">
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="email"  required  id="email">
+        </div>
+
+        <div>
+            <input type="file" multiple id="file" hidden>
+            <label for="file">
+                <img src="https://cdn.pixabay.com/photo/2016/02/10/21/59/landscape-1192669_1280.jpg" alt="">
+                </label>
+        </div>
+
+            <div>
+                <button type="submit">Send</button>
+                <button type="button">Close</button>
+        </div>
+    </form>
+</body>
+</html>

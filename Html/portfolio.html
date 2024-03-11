@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: "Poppins", sans-serif;  
+        }
+
+        li{
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        a{
+            text-decoration: none;
+            color: #0a58ca;
+            font-size: 20px;
+        }
+
+        li:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- NavBar -->
+    <nav style="display: flex; justify-content: space-between; background-color: #ccc; padding: 5px 20px; align-items: center;">
+        <div>
+            <img src="https://tanersaydam.net/assets/profile-favicon.jpg" width="60">
+        </div>
+        <ul style="display: flex; list-style: none; gap: 20px;">
+            <li>
+                <a href="#home">
+                    Home
+                </a>                
+            </li>
+            <li>
+                <a href="#skills">
+                    Skills
+                </a>                
+            </li>
+            <li>
+                <a href="#aboutMe">
+                    About Me
+                </a>                
+            </li>
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>                
+            </li>
+        </ul>
+    </nav>
+    <!-- End NavBar -->
+    <div>
+        <!-- Home Section -->
+        <section id="home" style="margin-top: 10px; text-align: center; border-bottom: 0px solid;">
+            <img src="https://tanersaydam.net/assets/profile-favicon.jpg" width="100">
+            <h1>Ahmet Hakan Yıldırım</h1>
+            <h5>Junior Software Engineer</h5>
+        </section>
+        
+        <!-- Skill Section -->
+        <section title="Skills" id="skills" style="padding: 10px; border-bottom: 0px solid; display: flex; justify-content: space-around; background-color: #f1f1f1;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" width="100" height="100">
+            <img src="https://dwglogo.com/wp-content/uploads/2017/09/1300px-Docker_container_engine_logo.png" width="100" height="100">
+            <img src="https://sue.eu/wp-content/uploads/sites/6/2022/07/elastic-logo-920x920-sue-v02.png" width="100" height="100">
+            <img src="https://pluralsight2.imgix.net/paths/images/domain-driven-design-6d10f953a0.png" width="100" height="100">
+        </section>
+         <!-- Skill Section -->
+
+        <section id="aboutMe" style="padding: 10px; border-bottom: 0px solid;">
+            <h1 style="text-align: center;">About Me</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quo aspernatur, impedit eum incidunt, ipsam, distinctio quibusdam unde quisquam repellendus libero sit ut voluptate laudantium esse fuga dolore alias hic.</p>
+        </section>
+        <section id="contact" style="padding: 10px; display: flex; justify-content: center; background-color: #f1f1f1;">
+            <div>
+                <h1>Contact</h1>
+                <style>
+                    input, textarea{
+                        width: 100%;
+                        padding: 5px;
+                        border-radius: 8px;
+                        margin-bottom: 5px;
+                    }
+    
+                    button{
+                        padding: 10px;
+                        border-radius: 10px;
+                        width: 100px;
+                        background-color: #0a58ca;
+                        color: white;
+                        border-color: #0a58ca;
+                    }
+                </style>
+                <form>
+                    <div>
+                        <label>Subject</label>
+                        <input type="text" required>
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" required>
+                    </div>
+                    <div>
+                        <label>Content</label>
+                        <textarea name="" id="" cols="30" rows="10" required></textarea>
+                    </div>
+                    <div style="text-align: right;">
+                        <button>Send</button>
+                    </div>
+                </form>
+            </div>
+            
+        </section>
+        <p style="margin-bottom: 500px;"></p>
+    </div>
+    
+</body>
+</html>
