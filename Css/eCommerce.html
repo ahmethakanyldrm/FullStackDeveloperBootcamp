@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Ecommerce</title>
+    <style>
+        .col {
+            width: 23.5%;
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        div img {
+            width: 100%;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .hamburger {
+            background-color: rgb(70, 67, 67);
+            color: white;
+            padding: 0px 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            min-height: 75px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        input {
+            display: none;
+        }
+
+        .mobile {
+            display: none;
+        }
+
+        .hamburger i {
+            cursor: pointer;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav ul li {
+            border: 1px solid;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .col h1 {
+            text-align: center;
+            border-bottom: 1px solid;
+            padding-bottom: 10px;
+        }
+
+        .col button {
+            float: right;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: cornflowerblue;
+            border-color: cornflowerblue;
+            color: black
+        }
+
+        .nav li:hover {
+            background-color: white;
+            color: black;
+            /* font-size: 20px; */
+        }
+
+        .nav h1 {
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:1765px) {
+            .col {
+                width: 23.4%;
+            }
+        }
+
+        @media screen and (max-width:1659px) {
+            .col {
+                width: 23.3%;
+            }
+        }
+
+        @media screen and (max-width:1565px) {
+            .col {
+                width: 23.2%;
+            }
+        }
+
+        @media screen and (max-width:1477px) {
+            .col {
+                width: 31.5%;
+            }
+        }
+
+        @media screen and (max-width:1429px) {
+            .col {
+                width: 31.2%;
+            }
+        }
+
+        @media screen and (max-width:1233px) {
+            .col {
+                width: 31.1%;
+            }
+        }
+
+        @media screen and (max-width:1177px) {
+            .col {
+                width: 47%;
+            }
+        }
+
+        @media screen and (max-width:858px) {
+            .col {
+                width: 100%;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .mobile {
+                display: flex;
+                align-items: center;
+                font-size: 30px;
+                min-height: 75px;
+            }
+
+            input:checked+.nav {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: start;
+                height: 90vh;
+            }
+
+            input:checked+.nav h1 {
+                display: none;
+            }
+
+            input:checked+.nav ul {
+                flex-direction: column;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="hamburger">
+        <!-- Mobil için nav menüsü -->
+        <div class="mobile">
+            <label for="menu">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+        </div>
+        <input type="checkbox" id="menu">
+
+        <!-- Tablet Pc ve Laptop için nav menüsü -->
+        <nav class="nav">
+            <h1>My Ecommerce</h1>
+            <ul>
+                <li>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Sepetim</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    <span>Ahmet Hakan Yıldırım</span>
+                </li>
+            </ul>
+        </nav>
+    </nav>
+    <div class="row">
+        <div class="col">
+            <img
+                src="https://previews.123rf.com/images/believeinme33/believeinme331701/believeinme33170100103/71926010-masa%C3%BCst%C3%BC-pc-bilgisayar-izole.jpg">
+            <h1>Laptop</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam maiores quisquam rerum! Quas
+                praesentium blanditiis porro dolores, facilis reiciendis, cumque iusto tempora eligendi nemo provident
+                ex ab unde eum!</p>
+            <button>Sepete Ekle</button>
+        </div>
+        <div class="col">
+            <img
+                src="https://previews.123rf.com/images/believeinme33/believeinme331701/believeinme33170100103/71926010-masa%C3%BCst%C3%BC-pc-bilgisayar-izole.jpg">
+            <h1>Laptop</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam maiores quisquam rerum! Quas
+                praesentium blanditiis porro dolores, facilis reiciendis, cumque iusto tempora eligendi nemo provident
+                ex ab unde eum!</p>
+            <button>Sepete Ekle</button>
+        </div>
+        <div class="col">
+            <img
+                src="https://previews.123rf.com/images/believeinme33/believeinme331701/believeinme33170100103/71926010-masa%C3%BCst%C3%BC-pc-bilgisayar-izole.jpg">
+            <h1>Laptop</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam maiores quisquam rerum! Quas
+                praesentium blanditiis porro dolores, facilis reiciendis, cumque iusto tempora eligendi nemo provident
+                ex ab unde eum!</p>
+            <button>Sepete Ekle</button>
+        </div>
+        <div class="col">
+            <img
+                src="https://previews.123rf.com/images/believeinme33/believeinme331701/believeinme33170100103/71926010-masa%C3%BCst%C3%BC-pc-bilgisayar-izole.jpg">
+            <h1>Laptop</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam maiores quisquam rerum! Quas
+                praesentium blanditiis porro dolores, facilis reiciendis, cumque iusto tempora eligendi nemo provident
+                ex ab unde eum!</p>
+            <button>Sepete Ekle</button>
+        </div>
+        <div class="col">
+            <img
+              src="https://previews.123rf.com/images/believeinme33/believeinme331701/believeinme33170100103/71926010-masa%C3%BCst%C3%BC-pc-bilgisayar-izole.jpg">
+              <h1>Laptop</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam maiores quisquam rerum! Quas
+                praesentium blanditiis porro dolores, facilis reiciendis, cumque iusto tempora eligendi nemo provident
+                ex ab unde eum!</p>
+                <button>Sepete Ekle</button>
+            </div>
+            <div class="col">
+                <img
+                  src="https://previews.123rf.com/images/believeinme33/believeinme331701/believeinme33170100103/71926010-masa%C3%BCst%C3%BC-pc-bilgisayar-izole.jpg">
+                  <h1>Laptop</h1>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ipsam maiores quisquam rerum! Quas
+                    praesentium blanditiis porro dolores, facilis reiciendis, cumque iusto tempora eligendi nemo provident
+                    ex ab unde eum!</p>
+                    <button>Sepete Ekle</button>
+                </div>
+    </div>
+    <script src="https://kit.fontawesome.com/f9230e6b00.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
