@@ -1,0 +1,53 @@
+nav{
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: #CFE2FF;
+    background-color: #CFE2FF;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav h1 {
+    cursor: pointer;
+    user-select: none;
+}
+
+nav li {
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    cursor: pointer;
+}
+nav li:hover {
+    
+    background-color: #9ec5fe;
+    border-color: #9ec5fe;
+}
+
+.row::after{
+    content: '';
+    clear: both;
+    display: table;
+}
+
+.row {
+    display: flex;
+}
+
+.row .left {
+    width: 30%;
+    float: left;
+}
+
+.row .right {
+    width: 70%;
+    float: right;
+}
