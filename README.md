@@ -27,3 +27,14 @@
  - Css && Bootstrap
  - Sosyal Medya Tasarımı - Css & Bootstrap
  - E Commerce Design - Bootstrap
+
+  ## 16.03.2024
+ - Bootstrap
+ - E Commerce Design (Add Product Page)
+ - E Bilet - Bootstrap
+ - JavaScript Başlangıç
+
+   ## 18.03.2024
+ - JavaScript
+ - Todo App 
+ - Personel App 
