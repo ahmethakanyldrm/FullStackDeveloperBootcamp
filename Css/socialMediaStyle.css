@@ -1,4 +1,11 @@
-nav{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+
+}
+
+nav {
     display: flex;
     padding: 10px 20px;
     justify-content: space-between;
@@ -25,14 +32,17 @@ nav li {
     border: 1px solid;
     border-radius: 10px;
     cursor: pointer;
-}
-nav li:hover {
-    
-    background-color: #9ec5fe;
-    border-color: #9ec5fe;
+
 }
 
-.row::after{
+nav li:hover {
+
+    background-color: #9ec5fe;
+    border-color: #9ec5fe;
+    color: white;
+}
+
+.row::after {
     content: '';
     clear: both;
     display: table;
@@ -40,6 +50,7 @@ nav li:hover {
 
 .row {
     display: flex;
+    gap: 20px;
 }
 
 .row .left {
@@ -48,6 +59,103 @@ nav li:hover {
 }
 
 .row .right {
-    width: 70%;
+    width: 60%;
     float: right;
+}
+
+.avatar {
+    border-radius: 50px;
+    width: 50px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 20px;
+
+}
+
+.mt-4 {
+    margin-top: 40px;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.mt-1 {
+    margin-top: 5px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.g-1 {
+    gap: 10px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.brd-1 {
+    border: 1px solid;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.show-post {
+width: 80%;
+    padding: 10px;
+}
+
+button {
+    width: 120px;
+    padding: 7px;
+    border-radius: 10px;
+    border-color: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 10px;
+
+}
+
+button:hover {
+    scale: 1.1;
+}
+
+.avatar2 {
+    width: 150px;
+    border-radius: 150px;
+
+}
+
+.profile {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+
+}
+
+.shadow {
+    border-radius: 10px;
+    border: 1px solid;
+    box-shadow: 0px 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
