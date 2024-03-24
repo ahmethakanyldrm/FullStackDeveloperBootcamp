@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <div>
+        User Name
+        <input type="text" name="" id="username">
+    </div>
+
+    <div>
+        Password
+        <input type="text" name="" id="password">
+    </div>
+
+    <div>
+        <button id="signin" onclick="signIn()">Sign In</button>
+    </div>
+
+    <script>
+        function signIn() {
+            const usernameEl = document.getElementById("username");
+            const passwordEl = document.getElementById("password");
+            
+            console.log(`Username: ${usernameEl.value} \n Password: ${passwordEl.value}`);
+        }
+    </script>
+</body>
+</html>

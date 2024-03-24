@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>JavaScript Start</h1>
+    <h2 id="title">Hello</h2>
+    <button onclick="sayHello('Ahmet Hakan')">Click to Me</button>
+    <script>
+        // console.log("Hello World");
+        // alert("Hello world");
+
+
+        function output() {
+            confirm("Are you okey?");
+        }
+
+        function sayHello(message) {
+            console.log('Hello ' + message);
+        }
+
+        // const let var
+        const name = "Ahmet Hakan";
+
+        function studentName() {
+            name;
+        }
+
+        // DOM document object mapping
+
+        debugger
+        const el = document.getElementById("title");
+        el.innerHTML = "js start";
+        el.style.color = "red";
+
+        const h3El = document.createElement("h3");
+        h3El.innerHTML = "Hello I'm h3";
+        el.appendChild(h3El);
+
+       // el.innerHTML = "<h1> Deneme </h1>";
+    </script>
+</body>
+
+</html>
