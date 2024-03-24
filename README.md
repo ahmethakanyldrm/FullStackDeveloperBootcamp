@@ -22,3 +22,8 @@
  - Css
  - Örnek E Commerce Tasarımı - Html, Css
  - Örnek Sosyal Medya Uygulaması Tasarımı - Html, Css (Devam ediyor)
+
+  ## 15.03.2024
+ - Css && Bootstrap
+ - Sosyal Medya Tasarımı - Css & Bootstrap
+ - E Commerce Design - Bootstrap
