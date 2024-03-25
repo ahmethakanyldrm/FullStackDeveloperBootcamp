@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+
+<body>
+    <h1>Todo App</h1>
+
+    <div id="addDiv">
+        Work
+        <input id="work" type="text">
+        <button onclick="add()">Save</button>
+    </div>
+
+    <br>
+
+    <div style="display: none;" id="updateDiv">
+        Update Work
+        <input id="updateWork" type="text">
+        <button onclick="update()">Güncelle</button>
+    </div>
+
+    <div>
+        <ol>
+
+        </ol>
+    </div>
+
+    <script>
+        let index = 0;
+        let updateId = 0;
+        function add() {
+            debugger
+            const el = document.getElementById("work");
+            const value = el.value;
+            // console.log(el);
+            // console.log(el.value);
+            const olEelement = document.querySelector("ol");
+
+            olEelement.innerHTML += `<li id="${index}">${value}
+                <button class="update" onclick= "get('${index}')"> Güncelle </button> <button class="delete" onclick="remove('${index}')">Sil</button>
+                 </li>`
+
+            // const liElement = document.createElement("li");
+            // liElement.innerText = value;
+            //olEelement.appendChild(liElement);
+
+            el.value = "";
+            el.focus();
+            index++;
+        }
+
+        function remove(id) {
+            const el = document.getElementById(id);
+            el.remove();
+        }
+
+        function get(id) {
+            const divEl = document.getElementById("updateDiv");
+            divEl.style.display = "block";
+
+            const addDivEl = document.getElementById("addDiv");
+            addDivEl.style.display = "none";
+
+            const updateButton = document.querySelectorAll(".update");
+            for (let index of updateButton) {
+
+                if (index == "entries") break;
+
+                updateButton[index].style.display = "none";
+            }
+
+            const deleteButton = document.querySelectorAll(".delete");
+            for (let index of deleteButton) {
+                if (index == "entries") break;
+                deleteButton[index].style.display = "none";
+            }
+
+
+
+            const el = document.getElementById(id);
+            let value = el.innerText;
+
+            value = value.replace("Güncelle sil", "");
+            const inputEl = document.getElementById("updateWork");
+            inputEl.value = value;
+            updateId = id;
+
+            // console.log(value);
+
+
+        }
+
+        function update() {
+            const el = document.getElementById(updateId);
+            const inputEl = document.getElementById("updateWork");
+            el.innerHTML = `${inputEl.value}
+                <button class="update" onclick= "get('${updateId}')"> Güncelle </button> <button class="delete" onclick="remove('${updateId}')">Sil</button>
+                 `;
+
+            const divEl = document.getElementById("updateDiv");
+            divEl.style.display = "none";
+
+            const addDivEl = document.getElementById("addDiv");
+            addDivEl.style.display = "block";
+
+            const updateButton = document.querySelectorAll(".update");
+            for (let index of updateButton) {
+
+                if (index == "entries") break;
+
+                updateButton[index].style.display = "none";
+            }
+
+            const deleteButton = document.querySelectorAll(".delete");
+            for (let index of deleteButton) {
+                if (index == "entries") break;
+                deleteButton[index].style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
