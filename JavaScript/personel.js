@@ -225,7 +225,7 @@ function closeUpdateForm(){
         for(let i in updateDeleteBtnels){            
             const udBtnEl = updateDeleteBtnels[i];
             if(udBtnEl !== undefined){
-                udBtnEl.style.display = "initial";
+                udBtnEl.style.display = "flex";
             }            
         }
     }
