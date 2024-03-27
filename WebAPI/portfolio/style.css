@@ -1,0 +1,56 @@
+
+*{
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  #header {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  #header img {
+    border-radius: 200px;
+  }
+
+  #skills {
+   text-align: center;
+    background-color: #f1f1f1;
+    padding: 50px 0px;
+  }
+
+  .skills {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .skills img {
+    border-radius: 150px;
+  }
+
+  #about {
+    text-align: center;
+    padding: 30px;
+  }
+
+  #socialMedia {
+    padding: 30px;
+    text-align: center;
+    background-color: #f1f1f1;
+  }
+
+  .socialMedia {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .socialMedia a {
+    font-size: 50px;
+    text-decoration: none;
+  }
