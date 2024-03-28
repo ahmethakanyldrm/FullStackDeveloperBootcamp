@@ -1,108 +1,126 @@
-
-
 let products = []; // array
-let shoppingCards = [];
+let shoppingCards = []; // localStorage'tan alınacak veya boş bir dizi
 
-if (localStorage.getItem("products")) {
-  products = JSON.parse(localStorage.getItem("products"));
+if(localStorage.getItem("products")){
+    products = JSON.parse(localStorage.getItem("products"));
 }
-setProductToHtml();
+
+if(localStorage.getItem("shoppingCards")){
+    shoppingCards = JSON.parse(localStorage.getItem("shoppingCards"));
+}
+
+setProductToHTML();
 setShoppingCardCountUsingLocalStorage();
 
-function setProductToHtml() {
-  const productsRowElement = document.getElementById("productsRow");
-  productsRowElement.innerHTML = "";
-  for (const index in products) {
-    const product = products[index];
-    const text = `
-      
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
-                          <div class="card">
-                              <div class="card-body product-image-div">
-                                  <img src="${product.image}"
-                                      >
-                              </div>
-                              <div class="card-header product-name-div">
-                                  <h6 class="text-center">${product.name.substring()}</h6>
-                              </div>
-                              <div class="card-body text-center">
-                                  <h4 class="alert alert-danger">
-                                  ${product.price}
-                                  </h4>
-                                  <button class="btn btn-outline-dark w-100" onclick="addShoppingCard(${index})" >
-                                      <i class="bi bi-cart-plus"></i>
-                                      Add Shopping Card</button>
-                              </div>
-                          </div>
-          
-                      </div>
-          
-          
+function setProductToHTML(){
+    const productsRowElement = document.getElementById("productsRow");
+    productsRowElement.innerHTML = "";
+
+    for(const index in products){
+        const product = products[index];
+
+        let buttonText = `
+          <button class="btn btn-danger w-100" disabled>
+            <i class="bi bi-exclamation-diamond-fill"></i>
+            No Product in Stock            
+          </button>
           `;
 
-    if (productsRowElement !== null) {
-      productsRowElement.innerHTML += text; // innerHTML sıfırdan siler ve tekrar yazar
+        if(product.stock > 0){
+          buttonText = `
+          <button onclick="addShoppingCard(${index})" class="btn btn-outline-dark w-100">
+            <i class="bi bi-cart-plus"></i>
+            Add Shopping Cart
+          </button>`
+        }
+
+        const text = `
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mt-1">
+        <div class="card">
+          <div class="card-body product-image-div">
+            <img src="${product.image}" alt="" style="width: 100%; max-height:100%">
+          </div>
+          <div class="card-header product-name-div" style="flex-direction: column">
+            <h6>${product.name.substring(0,84)}</h6>
+            <span>Stock: ${product.stock}</span>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="alert alert-danger"> 
+              ${formatCurrency(product.price)}
+            </h4>
+              ${buttonText}
+          </div>
+        </div>
+        </div>`
+        if(productsRowElement !== null){
+            productsRowElement.innerHTML += text;
+        }
     }
-  }
 }
 
-function save(event) {
-  event.preventDefault();
-  const nameElement = document.getElementById("name");
-  const priceElement = document.getElementById("price");
-  const imageElement = document.getElementById("image");
+function getImage(e){
+  const file = e.target.files[0];
 
-  const product = {
-    name: nameElement.value,
-    price: priceElement.value,
-    image: imageElement.value
-  };
+  const reader = new FileReader();  
 
-  products.push(product);
-
-  localStorage.setItem("products", JSON.stringify(products));
-
-  nameElement.value = "";
-  priceElement.value = "";
-  imageElement.value = "";
-
-  const closeButtonEl = document.getElementById("addProductModalCloseButton");
-
-  closeButtonEl.click();
-
-  setProductToHtml();
-   const toastOptions = {
-    closeButton: true,
-    progressBar: true,
-    positionClass: "toast-bottom-right"
-   };
-  
-  toastr.options = toastOptions;
-  toastr.success("Product add is successful");
-}
-
-
-function addShoppingCard(index) {
-  
-  const product = products[index];
-  shoppingCards.push(product);
-
-  localStorage.setItem("shoppingCards", JSON.stringify(shoppingCards));
-
-  setShoppingCardCountUsingLocalStorage();
-  
-
-}
-
-
-function setShoppingCardCountUsingLocalStorage() {
-
-  let cards = [];
-
-  if (localStorage.getItem("shoppingCards")){
-    cards = JSON.parse(localStorage.getItem("shoppingCards"));
+  reader.onload = function(event){
+    image = event.target.result;
   }
 
-  const shoppingCardCountElement = document.getElementById("shopping-card-count");
-  shoppingCardCountElement.innerHTML = cards.length;
+  reader.readAsDataURL(file);
+}
+
+function save(event){
+    event.preventDefault();
+    const nameElement = document.getElementById("name");
+    const priceElement = document.getElementById("price");    
+    const stockElement = document.getElementById("stock");
+    const id = products.length + 1;
+
+    const product = {
+        id: id,
+        name: nameElement.value,
+        price: priceElement.value,
+        image: image,
+        stock: stockElement.value
+    };
+
+    products.push(product);
+    localStorage.setItem("products",JSON.stringify(products));
+
+    nameElement.value = "";
+    priceElement.value = "";
+    stockElement.value = 0;
+
+    const closeBtnElement = document.getElementById("addProductModalCloseBtn");
+    closeBtnElement.click();
+    setProductToHTML();
+    const toastrOptions = {
+        closeButton: true,
+        progressBar: true,
+        positionClass: "toast-bottom-right"
+    }
+    toastr.options = toastrOptions;
+    toastr.success("Product add is successful");
+}
+
+function addShoppingCard(index){
+    const product = products[index];
+    if (product.stock > 0) {
+        shoppingCards.push(product);
+        product.stock -= 1;
+
+        localStorage.setItem("shoppingCards", JSON.stringify(shoppingCards));
+        localStorage.setItem("products", JSON.stringify(products));
+
+        setProductToHTML();
+        setShoppingCardCountUsingLocalStorage();
+    } else {
+        toastr.error("Product out of stock");
+    }
+}
+
+function setShoppingCardCountUsingLocalStorage(){
+    const shoppingCardCountElement = document.getElementById("shopping-card-count");
+    shoppingCardCountElement.innerHTML = shoppingCards.length;
 }
