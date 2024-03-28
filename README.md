@@ -21,12 +21,14 @@
    - Delete Shopping Card
    - Sweet Alert
    - Quantity
-   - Price
+   - Price kısmı masklandı
    - SPA
 
  ## 22.03.2024
  - JavaScript
  - E Commerce App
+   - Shopping Card
+   - Local Storage
 
   ## 20.03.2024
  - JavaScript
