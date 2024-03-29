@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<body>
+    <h1>Todo App</h1>
+    <div>
+        <input type="text" placeholder="Work..." autocomplete="off" id="work">
+        <button onclick="save()">Save</button>
+    </div>
+    <div>
+        <input type="text" placeholder="Work..." autocomplete="off" id="updateWork">
+        <button onclick="update()">Update</button>
+    </div>
+    <div>
+        <ul id="ulEl">
+        </ul>
+    </div>
+
+    <script>
+        let updateId = 0;
+        let todos = [];
+        
+        getAll();
+
+        function getAll(){
+            fetch("http://localhost:3001/todos")
+            .then(res=> res.json())
+            .then(data => {
+                todos = data;
+                setUlElByTodos();
+            })
+        }
+
+        function setUlElByTodos(){
+            const ulEl = document.getElementById("ulEl");
+            ulEl.innerHTML = "";
+
+            for(let todo of todos){
+                ulEl.innerHTML += `
+                    <li>
+                        ${todo.value}
+                        <button onclick="get('${todo.id}')">
+                            Update
+                        </button>
+                        <button onclick="deleteById('${todo.id}')">
+                            Delete
+                        </button>
+                    </li> `
+            }
+        }
+
+        function save(){
+            const inputEl = document.getElementById("work");
+            
+            const data = {
+                value: inputEl.value
+            }
+
+            fetch("http://localhost:3001/todos", {
+                method: "POST",
+                body: JSON.stringify(data),
+                contentType: "application/json"
+            })
+            .then(res => res.json())
+            .then(data => {
+                getAll();
+                inputEl.value = "";
+            });
+        }
+
+        function deleteById(id){
+            fetch(`http://localhost:3001/todos/${id}`, {
+                method: "DELETE",
+                contentType: "application/json"
+            })
+            .then(res => {
+                getAll();
+            })
+        }
+
+        function get(id){
+            updateId = id;
+            fetch(`http://localhost:3001/todos/${id}`)
+            .then(res=> res.json())
+            .then(data => {
+                const el = document.getElementById("updateWork");
+                el.value = data.value
+            })
+        }
+
+        function update(){
+            const el = document.getElementById("updateWork");
+            const data = {
+                id: updateId,
+                value: el.value
+            }
+
+            fetch(`http://localhost:3001/todos/${updateId}`, {
+                method: "PUT",
+                body: JSON.stringify(data),
+                contentType: "application/json"
+            })
+            .then(res=> {
+                el.value = "";
+                getAll();
+            })
+        }
+</script>
+</body>
+</html>
