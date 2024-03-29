@@ -1,14 +1,17 @@
 let data = {};
 
-fetchRequest();
+apiRequest();
 
-function fetchRequest() {
-    fetch("./db.json").then(res=>res.json()).then(response=> {
+function apiRequest() {
+    fetch("./db.json").then(res=> res.json())
+    .then((response) => {
         data = response;
         changeSubTitle();
-        getLogo();
-    })
-    
+        changeSkill();
+        changeSocialMedia();
+        changeAvatar();
+        changeAboutMe();
+    });
 }
 
 function changeSubTitle() {
@@ -16,18 +19,44 @@ function changeSubTitle() {
     el.innerText = data.subtitle;
 }
 
-function changeSkills() {
-    const el = document.getElementById("skills");
-    for (const skill of object) {
-        
-    }
-}
-
-function getLogo() {
+function changeAvatar() {
     const el = document.getElementById("logo");
-    el.src = data.logo;
+    el.src = data.avatar;
 }
 
-function changeAboutMe() {
-    const el = document.getElementById("");
+function changeSkill() {
+    const el = document.querySelector(".skills");
+     
+    let text = "";
+
+    for (let skill of data.skills){
+           text += `
+           <img src="${skill}"
+                alt="" width="150px">
+           `;
+    }
+
+    el.innerHTML = text;
+
+}
+
+function changeSocialMedia () {
+    const el = document.querySelector(".socialMedia");
+
+    let text = "";
+
+    for (const socialMedia of data.socialMedias) {
+        text += `
+        <a href="${socialMedia.url}" title= "${socialMedia.name}">
+        <i class="${socialMedia.icon}"></i>
+    </a>
+        `;
+    }
+
+    el.innerHTML = text ;
+}
+
+function changeAboutMe(){
+    const el = document.getElementById("aboutMeContent");
+    el.innerHTML = data.aboutMe;
 }
