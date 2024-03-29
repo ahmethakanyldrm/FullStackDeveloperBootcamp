@@ -1,5 +1,6 @@
 # Inspimo FullStack Developer Bootcamp
 
+
 ## Genel İçerik
  - Html 
  - Css
@@ -14,6 +15,44 @@
 - ElasticSearch
 - Design Patterns
 - Microservice Architecture 
+
+## 29.03.2024
+- TypeScript ile CLI yapma
+  - CLI yaparken kullandığımız komutlar
+    - npm init -y
+    - tsc --init
+    - npm install yargs
+    - npm install @types/yargs
+    - npm install @types/node
+    - npm run build
+    - npm link
+    - npm publish (npm paketi yayınlama)
+- Angular Başlangıç
+  - Angular proje run command -> ng serve -o
+  - Angular component oluşturma -> ng generate component example
+
+## 27.03.2024
+- eCommerce Projesi (Json-Server ve API ile birlikte)
+- Axios
+- JQuery
+- JQuery Ajax
+NOT: script elementinde js linkleri eklenirken sırası çok önemli. Eğer 11. satırda bir yapı kullanılacaksa bu mutlaka 10. satırda eklenmiş olmalı. Örneğin JQuery script elementi olarak eklenip $ işareti kullanılmak istenirse mutlaka kullanılacağı yerin üstünde eklenmiş olmalı.
+
+Örn: 
+//JQuery Script Elementi
+//JQuery kullanılan kod
+
+- Typescript
+NOT: npm install -g typescript koduyla TypeScript kurmanız gerekiyor. Sonra mevcut klasörde tsc dosyaadi.ts koduyla dosyayı js'e dönüştürmeniz gerekiyor
+
+
+ ## 25.03.2024
+ - JavaScript
+ - JSON
+ - Web API
+ - NPM Kütüphaneleri
+ - Json-Server (npm install -g json-server) (json-server dosya_adi.json)
+
 
  ## 23.03.2024
  - JavaScript
