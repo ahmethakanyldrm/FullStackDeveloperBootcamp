@@ -1,0 +1,15 @@
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #000;
+}
+
+.dropdown-menu
+ {
+  left: -87px !important;
+ }
