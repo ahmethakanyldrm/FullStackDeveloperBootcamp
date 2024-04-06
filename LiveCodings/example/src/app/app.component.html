@@ -1,0 +1,23 @@
+
+@if(updateWork) {
+  <input type="text" [(ngModel)] = "updateWork">
+  <button (click)="update()">Update</button>
+} @else {
+  <input type="text" [(ngModel)] = "work">
+  <button (click)="add()">Add</button>
+}
+
+<hr>
+
+<input type="search" [(ngModel)] = "search">
+
+<ul>
+  @for (todo of todos | search: search ; track todo) {
+    <li>{{todo}}</li>
+    @if(!updateWork) {
+      <button (click)="get($index)">Update</button>
+      <button (click)="deleteByIndex($index)">Delete</button>
+    }
+
+  }
+</ul>
