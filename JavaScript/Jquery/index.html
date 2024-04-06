@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>H2 Element</h2>
+    <input type="text" name="" id="">
+    <script>
+        $("h2").html("asasa");
+        $("input").val("Abc");
+        const val = $("input").val();
+        $("h2").css("color","red");
+        $.ajax({
+            method: "POST",
+            url: "https://www.google.com",
+            success: (res)=> {
+                console.log(res);
+            },
+            
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+</body>
+</html>
