@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ProductModel } from '../../models/product.model';
 import { ProductPipe } from '../../pipes/product.pipe';
 import {TrCurrencyPipe} from "tr-currency"
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-home',
@@ -67,11 +68,7 @@ export class HomeComponent {
     }
   ]
 
-  constructor(
-    private cart: ShoppingCartService
-  ) {
-    
-  }
+  constructor (private cart: ShoppingCartService){}
 
   categorySearch:string = "";
   productSearch: string = "";
@@ -83,14 +80,13 @@ export class HomeComponent {
 
   decrementProductQuantity(product: ProductModel) {
     
-    debugger
    if(product.quantity > 1){
       product.quantity--;
    }
   }
 
   incrementProductQuantity(product: ProductModel) {
-    debugger
+    
     if (product.quantity + 1 <= product.stock) {
       product.quantity++;
 
@@ -98,9 +94,15 @@ export class HomeComponent {
   }
 
   addShoppingCart(product: ProductModel) {
-    this.cart.shoppingCarts.push(product);
-    product.stock -= product.quantity;
+   const productModel = {...product};
+
+   const model = this.cart.shoppingCarts.find(p=> p.id === product.id);
+
+   if(model === undefined) {
+    this.cart.shoppingCarts.push(productModel);
+   }else {
+    model.quantity += productModel.quantity;
+   }
+       product.stock -= product.quantity;
   }
-
-
 }
