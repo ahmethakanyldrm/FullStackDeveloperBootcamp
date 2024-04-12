@@ -28,9 +28,12 @@ export class HomeComponent {
     private cart: ShoppingCartService,
     public _product: ProductService
   ) {
-    setTimeout(() => {
-      this.seedData();
-    }, 3000);
+    // setTimeout(() => {
+    //   this.seedData();
+    // }, 3000);
+
+    this.seedData();
+    
   }
 
   selectCategory(id: string = "") {
