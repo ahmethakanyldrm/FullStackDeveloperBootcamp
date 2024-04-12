@@ -16,6 +16,39 @@
 - Design Patterns
 - Microservice Architecture 
 
+## 12.04.2024 (Gelecek ders)
+- Sepete Placeholder(Ödev)
+- Ödemeyi yapıp sipariş oluşturma
+- Sipariş sayfası
+- Sipariş sayfası placeholder
+- Sipariş faturası
+- json-server ile API
+
+## 08.04.2024
+- Angular ile eTicaret Projesi Devam
+- Sepet içerisinde ürün silme ve adet değiştirme
+- Placeholder
+
+## 06.04.2024
+- Angular ile Live Coding
+
+## 05.04.2024
+- Angular ile eTicaret Projesi Devam
+- Generic Component
+- API ile sepete ürün ekleme
+- Sepet sayfasının tasarımı
+
+## 03.04.2024
+- Angular ile eTicaret Projesi Tasarım
+- Models 
+
+## 01.04.2024
+- Angular ile eTicaret Projesi Tasarım
+
+## 30.03.2024
+- Angular Devam Ediyoruz
+- Todo Projesi
+- Angular Component Yapısı
 ## 29.03.2024
 - TypeScript ile CLI yapma
   - CLI yaparken kullandığımız komutlar
