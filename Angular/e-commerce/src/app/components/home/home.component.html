@@ -1,26 +1,97 @@
 <nav aria-label="breadcrumb" class="d-flex justify-content-between align-items-center mt-3">
-
   <h3>Home Page</h3>
   <ol class="breadcrumb">
     <li class="breadcrumb-item active" aria-current="page">Home</li>
   </ol>
 </nav>
 
+@if(_product.products.length === 0){
+<div class="row mt-2">
+  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 mt-1">
+    <ul class="list-group">
+      <li class="list-group-item placeholder-glow">
+        <input class="form-control placeholder" />
+      </li>
+      <li class="list-group-item placeholder-glow">
+        <span class="placeholder">Category Category</span>
+      </li>
+      <li class="list-group-item placeholder-glow">
+        <span class="placeholder">Category Category</span>
+      </li>
+      <li class="list-group-item placeholder-glow">
+        <span class="placeholder">Category Category</span>
+      </li>
+      <li class="list-group-item placeholder-glow">
+        <span class="placeholder">Category Category</span>
+      </li>
+      <div class="placeholder-glow">
+        <span class="placeholder" style="font-size: small;">
+          We found 3 category
+        </span>
+      </div>
+    </ul>
+  </div>
+
+  <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12 mt-1">
+    <input class="form-control placeholder" />
+
+    <div class="form-group mt-1">
+      <div class="row">
+        @for(num of numbers; track num){
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-1">
+          <div class="card">
+            <div class="card-header position-relative">
+              <div class="placeholder-glow">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"
+                  class="card-img-top placeholder" style="width: 100%; object-fit: contain;">
+              </div>
+              <span class="text-light placeholder-glow"
+                style="background-color: rgb(220,53,69); color: white; position: absolute; right: 10px; bottom: 10px; font-size: 10px; padding: 2px; border-radius: 5px;">
+                <span class="placeholder">Stock: 100</span>
+              </span>
+            </div>
+            <div class="card-body text-center">
+              <h6 class="card-title placeholder-glow">
+                <span class="placeholder">Example Product Name</span>
+              </h6>
+              <span class="placeholder-glow" style="font-size: smaller; background-color: #f1f1f1; padding: 2px 8px;">
+                <span class="placeholder">Example Category</span>
+              </span>
+              <p class="placeholder-glow" style="font-size: small;">
+                <span class="placeholder">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+              </p>
+              <div class="d-flex placeholder-glow">
+                <span class="text-danger me-3 placeholder"><del>₺100.00,00</del></span>
+                <span class="text-success placeholder">₺99.999,00</span>
+              </div>
+            </div>
+            <div class="card-header placeholder-glow">
+              <span class="alert alert-dark placeholder" style="width: 100%;">
+
+              </span>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+}@else {
 <div class="row mt-2">
   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 mt-1">
     <ul class="list-group">
       <li class="list-group-item">
         <app-search (changeSearch)="categorySearch = $event"></app-search>
       </li>
-      @if(categorySearch === "") {
-      <li class="list-group-item" (click)="selectCategory()" [ngClass]="selectedCategoryId === '' ? 'active': '' ">
+      @if(categorySearch === ""){
+      <li class="list-group-item" (click)="selectCategory('')" [ngClass]="selectedCategoryId === '' ? 'active' : ''">
         All
       </li>
       }
-
-      @for(category of categories | category: categorySearch; track category ) {
+      @for(category of categories | category:categorySearch; track category){
       <li class="list-group-item" (click)="selectCategory(category.id)"
-        [ngClass]="selectedCategoryId === category.id ? 'active': '' ">
+        [ngClass]="selectedCategoryId === category.id ? 'active' : ''">
         {{category.name}}
       </li>
       }
@@ -28,47 +99,40 @@
     </ul>
   </div>
 
-  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 mt-1">
+  <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12 mt-1">
     <app-search (changeSearch)="productSearch = $event"></app-search>
 
     <div class="form-group mt-1">
       <div class="row">
-        @for(product of products | product: selectedCategoryId:productSearch; track product) {
+        @for(product of _product.products | product: selectedCategoryId:productSearch; track product){
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-1">
           <div class="card">
             <div class="card-header position-relative">
               <div>
-                <img src="{{product.imageUrl}}" class="card-img-top" style="width: 100%; object-fit: cover;" alt="">
+                <img src="{{product.imageUrl}}" class="card-img-top" style="width: 100%; object-fit: contain;">
               </div>
-              <span class="text-light" style="background-color: rgb(220,53,69); 
-                color: white; 
-                position: absolute; 
-                right: 10px; bottom: 10px; 
-                font-size: 10px; padding: 2px; 
-                border-radius: 5px;">
-                Stock: {{product.stock}}</span>
+              <span class="text-light"
+                style="background-color: rgb(220,53,69); color: white; position: absolute; right: 10px; bottom: 10px; font-size: 10px; padding: 2px; border-radius: 5px;">
+                Stock: {{product.stock}}
+              </span>
             </div>
             <div class="card-body text-center">
-              <h6 class="card-title" title="{{product.name}}">
-                {{product.name.length >= 19 ? product.name.substring(0,19) + '..'
-                : product.name
-                }}
-              </h6>
-              <span style="font-size: smaller; 
-                background-color: #f1f1f1; 
-                padding: 2px 8px;">
+              <h6 class="card-title" title="{{product.name}}">{{
+                product.name.length >= 19
+                ? product.name.substring(0,19) + '..'
+                : product.name}}</h6>
+              <span style="font-size: smaller; background-color: #f1f1f1; padding: 2px 8px;">
                 {{product.category.name}}
               </span>
-              <p style="font-size: small;">
-                {{product.description}}
-              </p>
+              <p style="font-size: small;">{{product.description}} </p>
               <div>
-                <span class="text-danger me-3"><del>{{product.price | trCurrency: '₺':true}}</del></span>
-                <span class="text-success"><del>{{product.discountedPrice | trCurrency: '₺':true}}</del></span>
+                <span class="text-danger me-3"><del>{{product.price | trCurrency:
+                    '₺':true}}</del></span>
+                <span class="text-success">{{product.discountedPrice | trCurrency: '₺':true}}</span>
               </div>
             </div>
             <div class="card-header">
-              @if(product.stock > 0) {
+              @if(product.stock > 0){
               <button class="btn btn-dark w-100 d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center" style="gap: 10px;">
                   <i class="fa-solid fa-minus ibtn" (click)="decrementProductQuantity(product)"></i>
@@ -80,7 +144,7 @@
               </button>
               }@else {
               <button class="btn btn-danger w-100" disabled>
-                Out of Stock
+                Out of stock
               </button>
               }
             </div>
@@ -91,3 +155,4 @@
     </div>
   </div>
 </div>
+}

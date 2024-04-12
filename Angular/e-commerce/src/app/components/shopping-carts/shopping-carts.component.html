@@ -6,6 +6,7 @@
   </ol>
 </nav>
 
+@if(cart.shoppingCarts.length > 0){
 <div class="row mt-2">
   <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-12">
     <div class="card">
@@ -26,23 +27,29 @@
             </tr>
           </thead>
           <tbody>
+            @for(data of cart.shoppingCarts; track data){
             <tr>
-              <td>1</td>
+              <td>{{$index + 1}}</td>
               <td>
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfFFXV4zCJybOFvocqAKKkko37SsPbl9F66Q&usqp=CA"
-                  width="50">
+                <img src="{{data.imageUrl}}" width="50" height="50" style="object-fit: contain;">
               </td>
-              <td>Grundig Pc 2560 B1</td>
-              <td>11999</td>
-              <td>5</td>
-              <td>59995</td>
+              <td>{{data.name}}</td>
+              <td>{{data.discountedPrice | trCurrency:'₺':true}}</td>
               <td>
-                <button class="btn btn-sn btn-outline-danger">
+                <div class="d-flex align-items-center" style="gap: 10px;">
+                  <i class="fa-solid fa-minus ibtn" (click)="decrement(data, $index)"></i>
+                  <input type="number" disabled class="quantity" [(ngModel)]="data.quantity">
+                  <i class="fa-solid fa-plus ibtn" (click)="increment(data)"></i>
+                </div>
+              </td>
+              <td>{{(data.discountedPrice * data.quantity) | trCurrency:'₺':true}}</td>
+              <td>
+                <button (click)="removeByIndex($index)" class="btn btn-sn btn-outline-danger">
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
             </tr>
+            }
           </tbody>
         </table>
       </div>
@@ -51,9 +58,34 @@
   <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
     <div class="card">
       <div class="card-header">
-        <h2 class="alert alert-success text-center">
-          ₺12.499,00
-        </h2>
+        <table class="table">
+          <tr>
+            <th>Total Amount</th>
+            <td style="text-align: right;">{{totalAmount | trCurrency:'₺': true}}</td>
+          </tr>
+          @if(totalKDV1){
+          <tr>
+            <th>Total KDV 1</th>
+            <td style="text-align: right;">{{totalKDV1 | trCurrency:'₺': true}}</td>
+          </tr>
+          }
+          @if(totalKDV10){
+          <tr>
+            <th>Total KDV 10</th>
+            <td style="text-align: right;">{{totalKDV10 | trCurrency:'₺': true}}</td>
+          </tr>
+          }
+          @if(totalKDV20){
+          <tr>
+            <th>Total KDV 20</th>
+            <td style="text-align: right;">{{totalKDV20 | trCurrency:'₺': true}}</td>
+          </tr>
+          }
+          <tr>
+            <th>Total</th>
+            <td class="text-danger" style="text-align: right;">{{total | trCurrency:'₺': true}}</td>
+          </tr>
+        </table>
       </div>
       <div class="card-body">
         <form>
@@ -86,3 +118,6 @@
     </div>
   </div>
 </div>
+}@else{
+<h4 class="alert alert-primary">There no item in shopping carts</h4>
+}
