@@ -62,29 +62,29 @@
         <table class="table">
           <tr>
             <th>Total Amount</th>
-            <td style="text-align: right;">{{totalAmount | trCurrency:'₺': true}}</td>
+            <td style="text-align: right;">{{_cart.totalAmount | trCurrency:'₺': true}}</td>
           </tr>
-          @if(totalKDV1){
+          @if(_cart.totalKDV1){
           <tr>
             <th>Total KDV 1</th>
-            <td style="text-align: right;">{{totalKDV1 | trCurrency:'₺': true}}</td>
+            <td style="text-align: right;">{{_cart.totalKDV1 | trCurrency:'₺': true}}</td>
           </tr>
           }
-          @if(totalKDV10){
+          @if(_cart.totalKDV10){
           <tr>
             <th>Total KDV 10</th>
-            <td style="text-align: right;">{{totalKDV10 | trCurrency:'₺': true}}</td>
+            <td style="text-align: right;">{{_cart.totalKDV10 | trCurrency:'₺': true}}</td>
           </tr>
           }
-          @if(totalKDV20){
+          @if(_cart.totalKDV20){
           <tr>
             <th>Total KDV 20</th>
-            <td style="text-align: right;">{{totalKDV20 | trCurrency:'₺': true}}</td>
+            <td style="text-align: right;">{{_cart.totalKDV20 | trCurrency:'₺': true}}</td>
           </tr>
           }
           <tr>
             <th>Total</th>
-            <td class="text-danger" style="text-align: right;">{{total | trCurrency:'₺': true}}</td>
+            <td class="text-danger" style="text-align: right;">{{_cart.total | trCurrency:'₺': true}}</td>
           </tr>
         </table>
       </div>
