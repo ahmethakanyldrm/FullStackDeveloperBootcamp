@@ -13,6 +13,7 @@ export class ProductService {
     this.getAll();
   }
 
+  // get all product request 
   getAll() {
     this.http.get<ProductModel[]>("http://localhost:3000/products").subscribe({
       next: (res) => {

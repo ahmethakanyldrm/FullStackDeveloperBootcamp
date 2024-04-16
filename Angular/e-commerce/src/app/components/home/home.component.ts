@@ -9,6 +9,8 @@ import { SearchComponent } from '../../common/components/search/search.component
 import { TrCurrencyPipe } from 'tr-currency';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ProductService } from '../../services/product.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ShoppingCartModel } from '../../models/shopping-cart.model';
 
 @Component({
   selector: 'app-home', //npm install tr-currency
@@ -25,15 +27,30 @@ export class HomeComponent {
   selectedCategoryId: string = "";
 
   constructor(
-    private cart: ShoppingCartService,
-    public _product: ProductService
+    private _cart: ShoppingCartService,
+    public _product: ProductService,
+    private _http: HttpClient
   ) {
     // setTimeout(() => {
     //   this.seedData();
     // }, 3000);
 
-    this.seedData();
-    
+    this.getAllCategories();
+
+  }
+
+  // api request => Get All Categories
+  getAllCategories() {
+    this._http.get<CategoryModel[]>("http://localhost:3000/categories")
+      .subscribe({
+        next: (res) => {
+          this.categories = res;
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log(error);
+
+        }
+      })
   }
 
   selectCategory(id: string = "") {
@@ -55,31 +72,66 @@ export class HomeComponent {
   addShoppingCart(product: ProductModel) {
     // ...product => referansı koparmak için kullanılıyor c# ta params operatörü 
     const productModel = { ...product };
+    const model = this._cart.shoppingCarts.find(p => p.productId === product.id);
 
-    const model = this.cart.shoppingCarts.find(p => p.id === product.id);
     if (model === undefined) {
-      this.cart.shoppingCarts.push(productModel);
+      // sepette eklemek istediğim ürün yoksa ürünü sepete ekle
+      const cart: ShoppingCartModel = {
+        productId: productModel.id,
+        categoryId: productModel.categoryId,
+        description: productModel.description,
+        imageUrl: productModel.imageUrl,
+        discountedPrice: productModel.discountedPrice,
+        kdvRate: productModel.kdvRate,
+        name: productModel.name,
+        price: productModel.price,
+        quantity: productModel.quantity,
+        stock: productModel.stock,
+        category: productModel.category,
+        id: undefined
+      }
+
+      // shoppingCarts Post request
+      this._http.post("http://localhost:3000/shoppingCarts/", cart)
+      .subscribe({
+        next: ()=> {
+          this._cart.getAll();
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err);
+        }
+      })
+
     } else {
+      // eğer sepette ürün varsa adetini güncelle ve api request ile kayıt bilgisini güncelle
+
       model.quantity += productModel.quantity;
+
+      this._http.put("http://localhost:3000/shoppingCarts/" + model.id, model)
+        .subscribe({
+          next: () => {
+            this._cart.getAll();
+          },
+          error: (err: HttpErrorResponse) => {
+            console.log(err);
+          }
+        })
+
+
     }
 
     product.stock -= productModel.quantity;
+
+    // products put request => products db update  
+    this._http.put("http://localhost:3000/products/" + product.id, product)
+      .subscribe({
+        next: () => {
+          this._product.getAll();
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err);
+        }
+      })
   }
 
-  seedData() {
-    this.categories = [
-      {
-        id: "1",
-        name: "Elektronik"
-      },
-      {
-        id: "2",
-        name: "Meyve & Sebze"
-      },
-      {
-        id: "3",
-        name: "Kıyafet"
-      }
-    ]
-  }
 }

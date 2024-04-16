@@ -2,7 +2,8 @@ import { CategoryModel } from "./category.model";
 import { KDVRateType } from "./product.model";
 
 export class ShoppingCartModel{
-    id: string = "";
+    id: string | undefined = "";
+    productId: string = "";
     imageUrl: string = "";
     name: string = "";
     description: string = "";
