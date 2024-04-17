@@ -17,7 +17,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   styleUrl: './shopping-carts.component.css'
 })
 export class ShoppingCartsComponent implements OnInit {
- 
+
 
   constructor(
     public _cart: ShoppingCartService,
@@ -27,7 +27,7 @@ export class ShoppingCartsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   
+
   }
 
 
@@ -40,34 +40,37 @@ export class ShoppingCartsComponent implements OnInit {
       product.stock += cart.quantity;
 
       this._http.put("http://localhost:3000/products/" + product.id, product)
-      .subscribe({
-        next: ()=> {
-          this._product.getAll();
-        },
-        error: (error: HttpErrorResponse) => {
+        .subscribe({
+          next: () => {
+            this._product.getAll();
+          },
+          error: (error: HttpErrorResponse) => {
             console.log(error);
-        }
-      })
+          }
+        })
     }
 
     this._http.delete("http://localhost:3000/shoppingCarts/" + cart.id)
-    .subscribe({
-      next: ()=> {
-        this._cart.getAll();
-        
-      }
-    })
+      .subscribe({
+        next: () => {
+          this._cart.getAll();
+
+        }
+      })
     // this._cart.shoppingCarts.splice(index, 1);
     // this.calculateTotal();
   }
 
   increment(cart: ShoppingCartModel) {
-    const product = this._product.products.find(p => p.id == cart.id);
+    const product = this._product.products.find(p => p.id == cart.productId);
     if (product !== undefined) {
       if (product.stock > 0) {
         cart.quantity++;
+        this._http.put("http://localhost:3000/shoppingCarts/" + cart.id, cart)
+          .subscribe(() => this._cart.getAll());
         product.stock--;
-       
+        this._http.put("http://localhost:3000/products/" + product.id, product)
+          .subscribe(() => this._product.getAll());
       }
     }
   }
@@ -76,30 +79,36 @@ export class ShoppingCartsComponent implements OnInit {
     if (cart.quantity === 1) {
       this.removeByIndex(index);
     } else {
-      const product = this._product.products.find(p => p.id == cart.id);
+      const product = this._product.products.find(p => p.id == cart.productId);
       if (product !== undefined) {
         cart.quantity--;
+        this._http.put("http://localhost:3000/shoppingCarts/" + cart.id, cart)
+          .subscribe(() => this._cart.getAll());
         product.stock++;
-       
+        this._http.put("http://localhost:3000/products/" + product.id, product)
+          .subscribe(() => this._product.getAll());
+
       }
     }
 
   }
 
-  pay(form: NgForm) {
-    if(form.valid) {
-      for(const data of this._cart.shoppingCarts) {
+ async pay(form: NgForm) {
+    if (form.valid) {
+      for (const data of this._cart.shoppingCarts) {
         const amount = data.quantity * data.discountedPrice;
         const kdv = amount - (amount / ((data.kdvRate / 100) + 1));
 
 
         let lastOrderSuffix: number = 0;
-        if(this._order.orders.length > 0) {
+        const orders = await fetch("http://localhost:3000/orders")
+          .then(res => res.json());
+        if (orders.length > 0) {
           lastOrderSuffix = this._order.orders[this._order.orders.length - 1].orderNumberSuffix;
         }
 
         const order: OrderModel = {
-          id:"123",
+          id: "123",
           date: new Date().toString(),
           kdvRate: data.kdvRate,
           price: data.price,
@@ -114,18 +123,35 @@ export class ShoppingCartsComponent implements OnInit {
           orderNumberSuffix: lastOrderSuffix + 1,
           orderNumber: "",
         };
-        // let orderNumberSuffixString = order.orderNumberSuffix.toString();
-        // let i = order.orderNumberSuffix.toString().length;
 
-        // for(i; i< 10; i++) {
-        //   orderNumberSuffixString = "0" + orderNumberSuffixString;
-        // }
-        
-        order.orderNumber = order.orderNumberPrefix + order.orderNumberSuffix.toString().padStart(10,"0");
-        this._order.orders.push(order);
+
+        order.orderNumber = order.orderNumberPrefix + order.orderNumberSuffix.toString().padStart(10, "0");
+        await fetch("http://localhost:3000/orders", {
+          method: "POST",
+          body: JSON.stringify(order)
+      }); 
+      
+        await fetch("http://localhost:3000/shoppingCarts/" + data.id, {
+          method: "DELETE"
+        });
+
+        // this._http.delete("http://localhost:3000/shoppingCarts/" + data.id).subscribe();
+        //  this._order.orders.push(order);
       }
 
-      this._cart.shoppingCarts = [];
+      this._cart.shoppingCarts = await fetch("http://localhost:3000/shoppingCarts")
+      .then(res=> res.json());
+      // setTimeout(() => {
+      //   this._cart.getAll();
+      // }, 300);
     }
   }
 }
+
+
+// let orderNumberSuffixString = order.orderNumberSuffix.toString();
+// let i = order.orderNumberSuffix.toString().length;
+
+// for(i; i< 10; i++) {
+//   orderNumberSuffixString = "0" + orderNumberSuffixString;
+// }
