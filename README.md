@@ -16,8 +16,25 @@
 - Design Patterns
 - Microservice Architecture 
 
-## 12.04.2024 (Gelecek ders)
-- Sepete Placeholder(Ödev)
+## 19.04.2024 (Gelecek ders)
+- Module
+- Version Update
+- Generic Http Service
+- Generic Error Service
+
+## 17.04.2024
+- Directive
+- Guard
+- Interceptor
+
+## 15.04.2024
+- Angular Todo Projesi (API ile)
+
+## 13.04.2024
+- Projenin tamamını API'ya bağlama
+
+## 12.04.2024
+- Sepete Placeholder
 - Ödemeyi yapıp sipariş oluşturma
 - Sipariş sayfası
 - Sipariş sayfası placeholder
