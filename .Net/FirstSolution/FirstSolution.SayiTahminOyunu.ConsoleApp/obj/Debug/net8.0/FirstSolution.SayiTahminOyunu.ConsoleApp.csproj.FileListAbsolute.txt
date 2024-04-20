@@ -1,0 +1,15 @@
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\bin\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.exe
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\bin\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.deps.json
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\bin\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.runtimeconfig.json
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\bin\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.dll
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\bin\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.pdb
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.sourcelink.json
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.dll
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\refint\FirstSolution.SayiTahminOyunu.ConsoleApp.dll
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.pdb
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\FirstSolution.SayiTahminOyunu.ConsoleApp.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.SayiTahminOyunu.ConsoleApp\obj\Debug\net8.0\ref\FirstSolution.SayiTahminOyunu.ConsoleApp.dll

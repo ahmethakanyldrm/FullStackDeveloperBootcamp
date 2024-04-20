@@ -1,0 +1,15 @@
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\bin\Debug\net8.0\FirstSolution.ConsoleApp.exe
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\bin\Debug\net8.0\FirstSolution.ConsoleApp.deps.json
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\bin\Debug\net8.0\FirstSolution.ConsoleApp.runtimeconfig.json
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\bin\Debug\net8.0\FirstSolution.ConsoleApp.dll
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\bin\Debug\net8.0\FirstSolution.ConsoleApp.pdb
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\FirstSolution.ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\FirstSolution.ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\FirstSolution.ConsoleApp.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\FirstSolution.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\FirstSolution.ConsoleApp.sourcelink.json
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\FirstSolution.ConsoleApp.dll
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\refint\FirstSolution.ConsoleApp.dll
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\FirstSolution.ConsoleApp.pdb
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\FirstSolution.ConsoleApp.genruntimeconfig.cache
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.ConsoleApp\obj\Debug\net8.0\ref\FirstSolution.ConsoleApp.dll
