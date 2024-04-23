@@ -11,6 +11,7 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ProductService } from '../../services/product.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ShoppingCartModel } from '../../models/shopping-cart.model';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-home', //npm install tr-currency
@@ -29,7 +30,7 @@ export class HomeComponent {
   constructor(
     private _cart: ShoppingCartService,
     public _product: ProductService,
-    private _http: HttpClient
+    private _http: HttpService
   ) {
     // setTimeout(() => {
     //   this.seedData();

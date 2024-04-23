@@ -8,6 +8,7 @@ import { ShoppingCartModel } from '../../models/shopping-cart.model';
 import { OrderModel } from '../../models/order.model';
 import { OrderService } from '../../services/order.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-shopping-carts',
@@ -23,7 +24,7 @@ export class ShoppingCartsComponent implements OnInit {
     public _cart: ShoppingCartService,
     private _product: ProductService,
     private _order: OrderService,
-    private _http: HttpClient
+    private _http: HttpService
   ) { }
 
   ngOnInit(): void {
