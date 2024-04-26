@@ -1,0 +1,103 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Home Page";
+    int index = 0;
+    string? updateWork = TempData["UpdateWork"]?.ToString();
+}
+
+<h1>Todo App</h1>
+
+<hr />
+
+@if (string.IsNullOrEmpty(updateWork))
+{
+    <form asp-action="Save" asp-controller="Home" method="get" autocomplete="off">
+        <div class="form-group">
+            <label>Work</label>
+            <input class="form-control" name="work" />
+        </div>
+
+        <div class="form-group mt-2">
+            <button type="submit" class="btn btn-dark w-100">Save</button>
+        </div>
+    </form>
+
+}
+else
+{
+    <form asp-action="Update" asp-controller="Home" method="get" autocomplete="off">
+        <div class="form-group">
+            <label>Update Work</label>
+            <input class="form-control" value="@TempData["UpdateWork"]" name="updateWork" />
+        </div>
+
+        <div class="form-group mt-2">
+            <button type="submit" class="btn btn-dark w-100">Update</button>
+
+            <a asp-controller="Home" asp-action="Cancel" class="btn btn-dark w-100 mt-1">Cancel</a>
+
+        </div>
+    </form>
+
+}
+
+
+
+
+<hr />
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Work</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var todo in Model)
+        {
+            index++;
+            <tr>
+                <td>@index</td>
+                <td>@todo</td>
+                <td>
+                    <a asp-action="Get" asp-controller="Home" asp-route-index="@index" class="btn btn-outline-primary btn-sm me-1">
+                        <i class="fa-solid fa-edit"></i>
+                    </a>
+
+                    <a asp-action="DeleteByIndex" asp-controller="Home" asp-route-index="@index" class="btn btn-outline-danger btn-sm me-1">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["Message"] != null)
+{
+    <script>
+        var message = '@Html.Raw(TempData["Message"])';
+        var type = '@TempData["Type"]';
+        if (type == "success") {
+            toastr.success(message);
+        }else if(type == "info") {
+            toastr.info(message);
+        }else {
+            toastr.error(message);
+        }
+       
+    </script>
+}
+
+@* <form asp-controller="Home"
+      asp-action="DeleteByIndex"
+      asp-route-index="(index-1)"
+      method="get">
+    <button class="btn btn-outline-danger btn-sm me-1">
+        <i class="fa-solid fa-trash"></i>
+    </button>
+</form> *@
