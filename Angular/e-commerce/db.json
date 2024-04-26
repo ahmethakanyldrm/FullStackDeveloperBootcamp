@@ -1,0 +1,89 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfFFXV4zCJybOFvocqAKKkko37SsPbl9F66Q&usqp=CA",
+      "name": "Grundig Pc 2560 B1",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "price": 12650,
+      "discountedPrice": 11999,
+      "stock": 189,
+      "kdvRate": 10,
+      "categoryId": "1",
+      "category": {
+        "id": "1",
+        "name": "Elektronik"
+      },
+      "quantity": 2
+    },
+    {
+      "id": "2",
+      "imageUrl": "https://m.media-amazon.com/images/I/61ujQL9JflL._AC_SX679_.jpg",
+      "name": "Columbia Delta Ridge™ Down Erkek Mont",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "price": 11550,
+      "discountedPrice": 10999,
+      "stock": 193,
+      "kdvRate": 20,
+      "categoryId": "3",
+      "category": {
+        "id": "3",
+        "name": "Kıyafet"
+      },
+      "quantity": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Elektronik"
+    },
+    {
+      "id": "2",
+      "name": "Meyve & Sebze"
+    },
+    {
+      "id": "3",
+      "name": "Kıyafet"
+    },
+    {
+      "id": "4",
+      "name": "Spor"
+    }
+  ],
+  "orders": [
+    {
+      "id": "123",
+      "date": "Wed Apr 17 2024 12:42:46 GMT+0300 (GMT+03:00)",
+      "kdvRate": 10,
+      "price": 12650,
+      "productName": "Grundig Pc 2560 B1",
+      "productDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "quantity": 2,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfFFXV4zCJybOFvocqAKKkko37SsPbl9F66Q&usqp=CA",
+      "total": 23998,
+      "totalAmount": 21816.363636363636,
+      "totalKdv": 2181.636363636364,
+      "orderNumberPrefix": "TS2024",
+      "orderNumberSuffix": 1,
+      "orderNumber": "TS20240000000001"
+    },
+    {
+      "id": "123",
+      "date": "Wed Apr 17 2024 12:43:21 GMT+0300 (GMT+03:00)",
+      "kdvRate": 20,
+      "price": 11550,
+      "productName": "Columbia Delta Ridge™ Down Erkek Mont",
+      "productDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "quantity": 1,
+      "imageUrl": "https://m.media-amazon.com/images/I/61ujQL9JflL._AC_SX679_.jpg",
+      "total": 10999,
+      "totalAmount": 9165.833333333334,
+      "totalKdv": 1833.166666666666,
+      "orderNumberPrefix": "TS2024",
+      "orderNumberSuffix": 2,
+      "orderNumber": "TS20240000000002"
+    }
+  ],
+  "shoppingCarts": []
+}

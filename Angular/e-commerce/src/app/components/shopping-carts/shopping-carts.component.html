@@ -1,1 +1,124 @@
-<p>shopping-carts works!</p>
+<title>Shopping Carts</title>
+<nav aria-label="breadcrumb" class="d-flex justify-content-between align-items-center mt-3">
+  <h3>Shopping Cart Page</h3>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page">Home</li>
+    <li class="breadcrumb-item active" aria-current="page">Shopping Carts</li>
+  </ol>
+</nav>
+
+@if(_cart.shoppingCarts.length > 0){
+<div class="row mt-2">
+  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-12">
+    <div class="card">
+      <div class="card-header">
+        <app-search></app-search>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(data of _cart.shoppingCarts; track data){
+            <tr>
+              <td>{{$index + 1}}</td>
+              <td>
+                <img src="{{data.imageUrl}}" width="50" height="50" style="object-fit: contain;">
+              </td>
+              <td>{{data.name}}</td>
+              <td>{{data.discountedPrice | trCurrency:'₺':true}}</td>
+              <td>
+                <div class="d-flex align-items-center" style="gap: 10px;">
+                  <i class="fa-solid fa-minus ibtn" (click)="decrement(data, $index)"></i>
+                  <input type="number" disabled class="quantity" [(ngModel)]="data.quantity">
+                  <i class="fa-solid fa-plus ibtn" (click)="increment(data)"></i>
+                </div>
+              </td>
+              <td>{{(data.discountedPrice * data.quantity) | trCurrency:'₺':true}}</td>
+              <td>
+                <button (click)="removeByIndex($index)" class="btn btn-sn btn-outline-danger">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+    <div class="card">
+      <div class="card-header">
+        <table class="table">
+          <tr>
+            <th>Total Amount</th>
+            <td style="text-align: right;">{{_cart.totalAmount | trCurrency:'₺': true}}</td>
+          </tr>
+          @if(_cart.totalKDV1){
+          <tr>
+            <th>Total KDV 1</th>
+            <td style="text-align: right;">{{_cart.totalKDV1 | trCurrency:'₺': true}}</td>
+          </tr>
+          }
+          @if(_cart.totalKDV10){
+          <tr>
+            <th>Total KDV 10</th>
+            <td style="text-align: right;">{{_cart.totalKDV10 | trCurrency:'₺': true}}</td>
+          </tr>
+          }
+          @if(_cart.totalKDV20){
+          <tr>
+            <th>Total KDV 20</th>
+            <td style="text-align: right;">{{_cart.totalKDV20 | trCurrency:'₺': true}}</td>
+          </tr>
+          }
+          <tr>
+            <th>Total</th>
+            <td class="text-danger" style="text-align: right;">{{_cart.total | trCurrency:'₺': true}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="card-body">
+        <form #payForm="ngForm" (ngSubmit)="pay(payForm)" autocomplete="off">
+          <div class="form-group">
+            <label>Card Owner</label>
+            <input type="text" name="cardOwner" ngModel class="form-control">
+          </div>
+          <div class="form-group mt-1">
+            <label>Card Number</label>
+            <input name="cardNumber" ngModel type="text" class="form-control">
+          </div>
+          <div class="row form-group mt-1">
+            <div class="col-6">
+              <label>Expiration Date</label>
+              <input type="text" name="expirationDate" ngModel class="form-control">
+            </div>
+            <div class="col-6">
+              <label>CVV</label>
+              <input type="number" name="cvv" ngModel class="form-control">
+            </div>
+          </div>
+          <div class="form-group mt-1">
+            <button class="btn btn-danger w-100">
+              <i class="fa-solid fa-money-check"></i>
+              Pay
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+}@else{
+<h4 class="alert alert-primary">There no item in shopping carts</h4>
+}

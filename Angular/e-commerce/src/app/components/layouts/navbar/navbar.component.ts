@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ShoppingCartService } from '../../../services/ShoppingCartService.';
+import { ShoppingCartService } from '../../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,5 +10,5 @@ import { ShoppingCartService } from '../../../services/ShoppingCartService.';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor (public cart: ShoppingCartService) {}
+  constructor(public cart: ShoppingCartService){}
 }

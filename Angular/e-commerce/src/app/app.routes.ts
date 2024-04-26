@@ -4,6 +4,7 @@ import { ShoppingCartsComponent } from './components/shopping-carts/shopping-car
 import { HomeComponent } from './components/home/home.component';
 import { LayoutsComponent } from './components/layouts/layouts.component';
 import { Routes } from '@angular/router';
+import { OrdersComponent } from './components/orders/orders.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,10 @@ export const routes: Routes = [
        {
         path: "shopping-carts",
         component: ShoppingCartsComponent
+       },
+       {
+        path: "orders",
+        component: OrdersComponent
        }
     ]
   },

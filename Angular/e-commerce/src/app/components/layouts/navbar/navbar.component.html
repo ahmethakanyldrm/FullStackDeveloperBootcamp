@@ -14,18 +14,17 @@
           <a class="nav-link" aria-current="page" routerLink="/orders">Orders</a>
         </li>
       </ul>
-      <button class="btn btn-outline-success position-relative">
+      <button class="btn btn-outline-success position-relative" routerLink="/shopping-carts">
         <i class="fa-solid fa-cart-shopping"></i>
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
           {{cart.shoppingCarts.length}}
         </span>
       </button>
-      <div class="dropdown ">
-        <img src="/assets/ahyEcommerce.jpeg" class="avatar-img" data-bs-toggle="dropdown" alt="">
+      <div class="dropdown">
+        <img src="/assets/ahyEcommerce.jpeg" class="avatar-img" alt="" data-bs-toggle="dropdown">
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" routerLink="/my-profile">My Profile</a></li>
           <li><a class="dropdown-item" routerLink="/login">Sign Out</a></li>
-
         </ul>
       </div>
     </div>

@@ -1,31 +1,30 @@
-
-
 li{
-  cursor: pointer;
-  user-select: none;
+    cursor: pointer;
+    user-select: none;
 }
 
 li:hover{
-  background-color: #f1f1f1;
-  color: black;
+    background-color: #f1f1f1;
+    color: black;
 }
 
 .active:hover{
-  background-color: #0d6efd;
-  color: white;
+    background-color: #0d6efd;
+    color: white;
 }
 
 .card-img-top{
-  height: 130px;
-  object-fit: cover;
-  object-position: top;
-}
-.ibtn {
-  padding: 2px;
+    height: 130px;
+    object-fit: cover;
+    object-position: top;
 }
 
-.ibtn:hover {
-  background-color: #f1f1f1;
-  color: black;
-  border-radius: 5px;
+.ibtn{
+    padding: 2px;
+}
+
+.ibtn:hover{
+    background-color: #f1f1f1;    
+    color: black;
+    border-radius: 5px;
 }
