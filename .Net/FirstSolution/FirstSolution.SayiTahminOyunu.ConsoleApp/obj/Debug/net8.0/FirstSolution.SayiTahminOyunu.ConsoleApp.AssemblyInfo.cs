@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FirstSolution.SayiTahminOyunu.ConsoleApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c10e1cb94e2a390bc896698fed428fa1b37cec8f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0eccb9c0af05285cdfda201992b12ddf6d15bc9")]
 [assembly: System.Reflection.AssemblyProductAttribute("FirstSolution.SayiTahminOyunu.ConsoleApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FirstSolution.SayiTahminOyunu.ConsoleApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

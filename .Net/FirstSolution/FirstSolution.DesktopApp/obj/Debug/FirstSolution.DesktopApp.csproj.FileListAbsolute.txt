@@ -1,0 +1,10 @@
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\bin\Debug\FirstSolution.DesktopApp.exe.config
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\bin\Debug\FirstSolution.DesktopApp.exe
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\bin\Debug\FirstSolution.DesktopApp.pdb
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\obj\Debug\FirstSolution.DesktopApp.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\obj\Debug\FirstSolution.DesktopApp.Form1.resources
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\obj\Debug\FirstSolution.DesktopApp.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\obj\Debug\FirstSolution.DesktopApp.csproj.GenerateResource.cache
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\obj\Debug\FirstSolution.DesktopApp.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\obj\Debug\FirstSolution.DesktopApp.exe
+C:\Users\Lenovo\Desktop\FullStackBootcamp\.Net\FirstSolution\FirstSolution.DesktopApp\obj\Debug\FirstSolution.DesktopApp.pdb
